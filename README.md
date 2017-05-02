@@ -5,7 +5,7 @@ An android library to create the new Android 7.0 shortcuts easily.
 
 ## Releases:
 
-#### Current release: 1.0.2.
+#### Current release: 1.0.1.
 
 You can see all the library releases [here](https://github.com/marcoscgdev/shortcut-helper/releases).
 
