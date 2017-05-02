@@ -1,11 +1,11 @@
-# ShortcutHelper
+# Shortcut Helper
 An android library to create the new Android 7.0 shortcuts easily.
 
 ---
 
 ## Screenshots
 
-<img src="https://raw.githubusercontent.com/marcoscgdev/ShortcutHelper/master/screenshots/IMG_20170502_122417.jpg" width="350">
+<img src="https://raw.githubusercontent.com/marcoscgdev/shortcut-helper/master/screenshots/IMG_20170502_122417.jpg" width="350">
 
 ---
 
