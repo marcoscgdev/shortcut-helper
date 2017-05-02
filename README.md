@@ -23,7 +23,7 @@ You can see all the library releases [here](https://github.com/marcoscgdev/short
 
 Add this to your root *build.gradle* file:
 
-```
+```groovy
 allprojects {
     repositories {
         ...
@@ -34,7 +34,7 @@ allprojects {
 
 Now add the dependency to your app build.gradle file:
 
-```
+```groovy
 compile 'com.github.marcoscgdev:shortcut-helper:1.0.1'
 ```
 
@@ -42,7 +42,7 @@ compile 'com.github.marcoscgdev:shortcut-helper:1.0.1'
 
 You can follow this snippet:
 
-```
+```java
 Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/marcoscgdev/ShortcutHelper"));
 Intent activityIntent = new Intent(Intent.ACTION_MAIN, Uri.EMPTY, this, ShortcutActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
