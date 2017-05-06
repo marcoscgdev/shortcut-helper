@@ -43,7 +43,7 @@ compile 'com.github.marcoscgdev:shortcut-helper:1.0.1'
 You can follow this snippet:
 
 ```java
-Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/marcoscgdev/ShortcutHelper"));
+Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/marcoscgdev/shortcut-helper"));
 Intent activityIntent = new Intent(Intent.ACTION_MAIN, Uri.EMPTY, this, ShortcutActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
 ShortcutHelper.with(this)
