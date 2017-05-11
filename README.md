@@ -5,7 +5,7 @@ An android library to create the new Android 7.1 shortcuts easily.
 
 ## Releases:
 
-#### Current release: 1.0.1.
+#### Current release: 1.0.2.
 
 You can see all the library releases [here](https://github.com/marcoscgdev/shortcut-helper/releases).
 
@@ -35,7 +35,7 @@ allprojects {
 Now add the dependency to your app build.gradle file:
 
 ```groovy
-compile 'com.github.marcoscgdev:shortcut-helper:1.0.1'
+compile 'com.github.marcoscgdev:shortcut-helper:1.0.2'
 ```
 
 ### Creating the shortcuts
