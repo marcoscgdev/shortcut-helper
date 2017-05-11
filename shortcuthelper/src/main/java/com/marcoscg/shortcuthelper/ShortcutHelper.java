@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.graphics.drawable.Icon;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 
@@ -16,7 +17,6 @@ import java.util.List;
  * Created by @MarcosCGdev on 02/05/2017.
  */
 
-@TargetApi(25)
 public class ShortcutHelper {
 
     private static Activity mActivity;
@@ -34,6 +34,9 @@ public class ShortcutHelper {
     }
 
     public ShortcutHelper createShortcut(@NonNull CharSequence shortLabel, @NonNull CharSequence longLabel, @NonNull int iconResource, @NonNull Intent intent) {
+        if (Build.VERSION.SDK_INT < 25) {
+            return this;
+        }
         String shortcutId = shortLabel.toString().replaceAll("\\s+","").toLowerCase() + "_shortcut";
         ShortcutInfo shortcut = new ShortcutInfo.Builder(mActivity, shortcutId)
                 .setShortLabel(shortLabel)
@@ -46,6 +49,9 @@ public class ShortcutHelper {
     }
 
     public ShortcutHelper createShortcut(@NonNull CharSequence shortLabel, @NonNull CharSequence longLabel, @NonNull int iconResource, @NonNull Intent[] intents) {
+        if (Build.VERSION.SDK_INT < 25) {
+            return this;
+        }
         String shortcutId = shortLabel.toString().replaceAll("\\s+","").toLowerCase() + "_shortcut";
         ShortcutInfo shortcut = new ShortcutInfo.Builder(mActivity, shortcutId)
                 .setShortLabel(shortLabel)
@@ -58,6 +64,9 @@ public class ShortcutHelper {
     }
 
     public void go() {
+        if (Build.VERSION.SDK_INT < 25) {
+            return;
+        }
         mShortcutManager = mActivity.getSystemService(ShortcutManager.class);
         mShortcutManager.setDynamicShortcuts(mShortcutInfos);
     }
