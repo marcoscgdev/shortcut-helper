@@ -1,5 +1,5 @@
 # Shortcut Helper  [![API](https://img.shields.io/badge/API-9%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=9)  [![](https://jitpack.io/v/marcoscgdev/shortcut-helper.svg)](https://jitpack.io/#marcoscgdev/shortcut-helper)
-An android library to create the new Android 7.0 shortcuts easily.
+An android library to create the new Android 7.1 shortcuts easily.
 
 ---
 
