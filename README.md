@@ -64,7 +64,7 @@ ShortcutHelper.with(this)
 
 ```java
 List<Shortcut> shortcutList = new ArrayList<Shortcut>();
-shortcutList.add(new Shortcut( "Short Label", "Long Label", R.drawable.ic_shortcut_android, activityIntent));
+shortcutList.add(new Shortcut("Short Label", "Long Label", R.drawable.ic_shortcut_android, activityIntent));
 ...
 ShortcutHelper.with(this)
     .createShortcutList(shortcutList)
