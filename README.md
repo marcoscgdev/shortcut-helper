@@ -5,7 +5,7 @@ An android library to create the new Android 7.1 shortcuts easily.
 
 ## Releases:
 
-#### Current release: 1.0.2.
+#### Current release: 1.0.3.
 
 You can see all the library releases [here](https://github.com/marcoscgdev/shortcut-helper/releases).
 
@@ -35,7 +35,7 @@ allprojects {
 Now add the dependency to your app build.gradle file:
 
 ```groovy
-compile 'com.github.marcoscgdev:shortcut-helper:1.0.2'
+compile 'com.github.marcoscgdev:shortcut-helper:1.0.3'
 ```
 
 ### Creating the shortcuts
@@ -57,6 +57,17 @@ ShortcutHelper.with(this)
         "Long Label 2",
         R.drawable.ic_shortcut_android,
         activityIntent)
+    .go();
+```
+
+#### Shortcut list:
+
+```java
+List<Shortcut> shortcutList = new ArrayList<Shortcut>();
+shortcutList.add(new Shortcut( "Short Label", "Long Label", R.drawable.ic_shortcut_android, activityIntent));
+...
+ShortcutHelper.with(this)
+    .createShortcutList(shortcutList)
     .go();
 ```
 
