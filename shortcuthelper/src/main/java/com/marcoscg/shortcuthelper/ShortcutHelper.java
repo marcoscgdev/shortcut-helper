@@ -20,7 +20,7 @@ import java.util.List;
 public class ShortcutHelper {
 
     private static Activity mActivity;
-    private ShortcutManager mShortcutManager;
+    private static ShortcutManager mShortcutManager = null;
     private static List<ShortcutInfo> mShortcutInfos = new ArrayList<ShortcutInfo>();
 
     public static ShortcutHelper with(Activity activity) {
@@ -63,12 +63,38 @@ public class ShortcutHelper {
         return this;
     }
 
+    public ShortcutHelper createShortcutList(@NonNull List<Shortcut> shortcuts) {
+        if (Build.VERSION.SDK_INT < 25) {
+            return this;
+        }
+        mShortcutManager = mActivity.getSystemService(ShortcutManager.class);
+        for (int i=0; i<shortcuts.size(); i++) {
+            if (i < mShortcutManager.getMaxShortcutCountPerActivity()) {
+                String shortcutId = shortcuts.get(i).getShortLabel().replaceAll("\\s+","").toLowerCase() + "_shortcut";
+                ShortcutInfo shortcut = new ShortcutInfo.Builder(mActivity, shortcutId)
+                        .setShortLabel(shortcuts.get(i).getShortLabel())
+                        .setLongLabel(shortcuts.get(i).getLongLabel())
+                        .setIcon(Icon.createWithResource(mActivity, shortcuts.get(i).getIconResource()))
+                        .setIntent(shortcuts.get(i).getIntent())
+                        .build();
+                mShortcutInfos.add(shortcut);
+            }
+        }
+        return this;
+    }
+
     public void go() {
         if (Build.VERSION.SDK_INT < 25) {
             return;
         }
-        mShortcutManager = mActivity.getSystemService(ShortcutManager.class);
-        mShortcutManager.setDynamicShortcuts(mShortcutInfos);
+        if (mShortcutManager==null)
+            mShortcutManager = mActivity.getSystemService(ShortcutManager.class);
+        try {
+            if (mShortcutInfos!=null && mShortcutInfos.size()>0)
+                mShortcutManager.setDynamicShortcuts(mShortcutInfos);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
